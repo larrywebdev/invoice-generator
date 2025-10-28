@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="invoice-generator.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Free Invoice Generator</title>
+</head>
+
+<body>
+
+
+    <header>
+        <nav class="flex justify-between py-2 items-center relative">
+            <ul class="center-nav flex gap-15 ps-75">
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Help</a></li>
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">History</a></li>
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Invoicing Guide</a>
+                </li>
+            </ul>
+            <div class=" end-nav flex gap-10 pe-10 items-center">
+                <a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Sign In</a>
+                <a href="#"
+                    class="bg-[#009E74] hover:bg-[#008663] duration-200 ease-in px-4 py-2 rounded-md text-white">Sign
+                    Up</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <section>
+        <div class="ps-15 pe-110 pt-5 bg-white">
+            <h1 class="text-4xl font-semibold">Free Invoice Template</h1>
+            <h3 class="text-2xl font-medium py-2">Make beautiful Invoices with one click!</h3>
+            <p class="text-base text-[#677788]">Welcome to the original Invoice Generator, used by over 4 million
+                businesses. Invoice Generator lets you
+                instantly make
+                Invoices with our attractive invoice template straight from your web browser. The Invoices you make can
+                be
+                sent and paid
+                online or downloaded as a PDF. <br> <br>
+                Did we also mention that Invoice Generator lets you generate an unlimited number of Invoices?</p>
+            <a href="#"
+                class="bg-[#009E74] hover:bg-[#008663] duration-200 ease-in px-4 py-2 rounded-md text-white inline-block mt-3">OK,
+                got it!</a>
+        </div>
+    </section>
+
+
+    <section class="invoice mb-15 flex justify-between" id="element">
+        <form id="invoice-form" class="bg-white">
+            <div class="flex justify-between ps-15">
+                <div>
+                    <div>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        <div class="upload-box" id="uploadBox">
+                            <span><i class="fa fa-plus"></i> Add Your Logo</span>
+                            <button type="button" class="remove-btn" id="removeBtn"><i class="fa fa-times"></i></button>
+                        </div>
+                        <textarea placeholder="Who is this from?"
+                            class="px-4 py-1 rounded-md resize-none border border-[#c4cdd5b3] block w-100 h-17 my-4 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                            id="senderName" required></textarea>
+                    </div>
+                    <div class="flex gap-10">
+                        <div class="grid">
+                            <label class="ps-5 pb-4 text-[#677788]">Bill To</label>
+                            <textarea placeholder="Who is this to?"
+                                class="px-4 py-1 rounded-md resize-none border border-[#c4cdd5b3] w-60 h-17 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                id="billTo" required></textarea>
+                        </div>
+                        <div class="grid">
+                            <label class="ps-5 pb-4 text-[#677788]">Ship To</label>
+                            <textarea placeholder="(Optional)"
+                                class="px-4 py-1 rounded-md resize-none border border-[#c4cdd5b3] w-60 h-17 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                id="shipTo"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-5xl font-[400] mt-10 self-end">INVOICE</h1>
+                    <input type="number"
+                        class="border border-[#c4cdd5b3] text-right placeholder:text-left px-3 rounded-sm h-[35px] w-45 mb-15 self-end focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                        placeholder="#" id="invoiceNumber" required>
+                    <div class="flex gap-5 justify-between">
+                        <label class="text-[#677788]">Date</label>
+                        <input type="date"
+                            class="border border-[#c4cdd5b3] text-right placeholder:text-left px-3 rounded-sm h-[35px] w-35 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                            id="invoiceDate" required>
+                    </div>
+                    <div class="flex gap-5 justify-between">
+                        <label class="text-[#677788]">Payment Terms</label>
+                        <input type="text"
+                            class="border border-[#c4cdd5b3] text-right placeholder:text-left px-3 rounded-sm h-[35px] w-35 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                            id="paymentTerms" required>
+                    </div>
+                    <div class="flex gap-5 justify-between items-center">
+                        <label class="text-[#677788]">Due Date</label>
+                        <input type="date"
+                            class="border border-[#c4cdd5b3] text-right placeholder:text-left px-3 rounded-sm h-[35px] w-35 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                            id="dueDate" required>
+                    </div>
+                    <div class="flex gap-5 justify-between items-center">
+                        <label class="text-[#677788]">PO Number</label>
+                        <input type="text"
+                            class="border border-[#c4cdd5b3] text-right placeholder:text-left px-3 rounded-sm h-[35px] w-35 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                            id="poNumber" required>
+                    </div>
+                </div>
+            </div>
+            <div class="ps-15 w-235">
+                <div class="bg-[#008663] text-white flex justify-between my-5 py-2 px-4 rounded-md">
+                    <h6>Item</h6>
+                    <div class="flex gap-15">
+                        <h6 class="pe-2">Quantity</h6>
+                        <h6 class="pe-20">Rate</h6>
+                        <h6 class="pe-7">Amount</h6>
+                    </div>
+                </div>
+                <div id="new-line">
+                    <div class="item flex gap-2">
+                        <input type="text" placeholder="Description of item/service..."
+                            class="border border-[#c4cdd5b3] rounded-sm w-[30rem] h-[35px] px-3 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3] description"
+                            required>
+                        <input type="number"
+                            class="border border-[#c4cdd5b3] rounded-sm w-[7rem] h-[35px] px-3 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3] quantity"
+                            oninput="updateAmount()" required>
+                        <div class="flex items-center">
+                            <input type="number" placeholder="$"
+                                class="border border-[#c4cdd5b3] rounded-sm w-[8rem] h-[35px] px-3 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3] rate"
+                                oninput="updateAmount()" required>
+                            <span class="ps-7 me-3 text-[#677788] amount"></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="button"
+                    class="mt-5 p-2 text-[#009E74] border-[#009E74] border-1 rounded-sm hover:bg-[#009E74] hover:text-white duration-200 ease-in"
+                    onclick="createNewLineItem()"><strong>+</strong>
+                    Line Item</button>
+                <div class="flex justify-between">
+                    <div class="grid">
+                        <div class="grid">
+                            <label class="ps-5 py-4 text-[#677788]">Notes</label>
+                            <textarea placeholder="Notes - any relevant information not already covered" rows="3"
+                                class="px-4 py-1 rounded-md resize-none border border-[#c4cdd5b3] w-100 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                id="notes"></textarea>
+                        </div>
+                        <div class="grid">
+                            <label class="ps-5 py-4 text-[#677788]">Terms</label>
+                            <textarea placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
+                                rows="3"
+                                class="px-4 py-1 rounded-md resize-none border border-[#c4cdd5b3] w-100 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                id="terms"></textarea>
+                        </div>
+                    </div>
+                    <div class="grid" id="finalAmounts">
+                        <div class="flex justify-between items-center pe-7">
+                            <label class="text-[#677788]">Subtotal</label>
+                            <span class="text-[#677788]" id="subtotal"></span>
+                        </div>
+                        <div id="discount-tax-shipping" class="grid">
+                            <div class="group flex justify-between items-center" id="discountField">
+                                <label class="text-[#677788]">Discount</label>
+                                <div class="flex items-center ms-15">
+                                    <input type="number"
+                                        class="border border-[#c4cdd5b3] border-r-0 rounded-r-none rounded-sm w-[6rem] h-9 p-2 placeholder:text-right focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                        id="discount" placeholder="%" oninput="updateAmount()">
+
+                                    <i class="fa-solid fa-repeat pt-2.5 px-3 border-1 border-[#c4cdd5b3] rounded-l-none rounded-sm me-2 h-9 text-[#677788] hover:bg-[#677788] hover:text-white hover:cursor-pointer duration-200 ease-in"
+                                        onclick="changeDiscountBase()"></i>
+
+                                </div>
+                                <span
+                                    class="fas fa-times fa-md text-[#ffffff] hover:cursor-pointer group-hover:text-[#009E74] duration-200 ease-in"
+                                    onclick="removeDiscountField()"></span>
+                            </div>
+                            <div class="group hidden justify-between items-center" id="taxField">
+                                <label class="text-[#677788]">Tax</label>
+                                <div class="flex items-center ms-24">
+                                    <input type="number"
+                                        class="border border-[#c4cdd5b3] border-r-0 rounded-r-none rounded-sm w-[6rem] h-9 p-2 placeholder:text-right focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                        id="tax" placeholder="%" oninput="updateAmount()">
+
+                                    <i class="fa-solid fa-repeat pt-2.5 px-3 border-1 border-[#c4cdd5b3] rounded-l-none rounded-sm me-2 h-9 text-[#677788] hover:bg-[#677788] hover:text-white hover:cursor-pointer duration-200 ease-in"
+                                        onclick="changeTaxBase()"></i>
+
+                                </div>
+                                <span
+                                    class="fas fa-times fa-md text-[#ffffff] hover:cursor-pointer group-hover:text-[#009E74] duration-200 ease-in"
+                                    onclick="removeTaxField()"></span>
+                            </div>
+                            <div class="hidden justify-between items-center group" id="shippingField">
+                                <label class="text-[#677788] me-13">Shipping</label>
+                                <input type="number" placeholder="$"
+                                    class="border border-[#c4cdd5b3] rounded-sm w-[8.5rem] h-[35px] px-2 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                    id="shipping" oninput="updateAmount()">
+                                <span
+                                    class="fas fa-times fa-md text-[#ffffff] hover:cursor-pointer group-hover:text-[#009E74] duration-200 ease-in"
+                                    id="deleteShipping" onclick="removeShippingField()"></span>
+                            </div>
+                        </div>
+                        <div class="text-end pe-5">
+                            <button type="button" class="p-2 me-3 text-[#009E74] hover:text-[#008663] hidden"
+                                id="discountBtn" onclick="createDiscountField()"><span class="fas fa-plus fa-sm"></span>
+                                <strong>Discount</strong></button>
+                            <button type="button" class="p-2 text-[#009E74] hover:text-[#008663]" id="taxBtn"
+                                onclick="createTaxField()"><span class="fas fa-plus fa-sm"></span>
+                                <strong>Tax</strong></button>
+                            <button type="button" class="p-2 text-[#009E74] hover:text-[#008663]" id="shippingBtn"
+                                onclick="createShippingField()"><span class="fas fa-plus fa-sm"></span>
+                                <strong>Shipping</strong></button>
+                        </div>
+                        <div class="flex justify-between items-center pe-7">
+                            <label class="text-[#677788]">Total</label>
+                            <span class="text-[#677788]" id="total"></span>
+                        </div>
+                        <div class="flex justify-between items-center pe-7">
+                            <label class="text-[#677788]">Amount Paid</label>
+                            <input type="number" placeholder="$"
+                                class="border border-[#c4cdd5b3] rounded-sm w-[8rem] h-[35px] p-2 focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]"
+                                id="amountPaid" oninput="updateAmount()">
+                        </div>
+                        <div class="flex justify-between items-center pe-7">
+                            <label class="text-[#677788]">Balance Due</label>
+                            <span class="text-[#677788]" id="balanceDue"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div>
+            <button class="bg-[#009E74] text-white font-normal py-3 px-15 mt-10 rounded-sm disabled:opacity-75"
+                id="downloadPdf" onclick="generatePdf()" disabled><i
+                    class="fa-solid fa-download pe-2"></i>Download</button>
+            <div
+                class="flex flex-col px-7 pt-5 me-7 mt-10 text-[#677788] border border-r-0 border-l-0 border-[#c4cdd5b3] h-fit">
+                <div class="py-3">
+                    <h6>Theme</h6>
+                    <select id="theme"
+                        class="border rounded-sm border-[#c4cdd5b3] pe-22 py-2 text-[#677788] focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]">
+                        <option value="classic">Classic</option>
+                        <option value="slate">Slate</option>
+                    </select>
+                </div>
+                <div class="py-2">
+                    <h6>Currency</h6>
+                    <select id="currency"
+                        class="border rounded-sm border-[#c4cdd5b3] pe-15 py-2 text-[#677788] focus:outline-none focus:ring-2 focus:ring-[#c4cdd5b3] focus:border-[#c4cdd5b3]">
+                        <option value="AED" label="AED (د.إ)">AED (د.إ)</option>
+                        <option value="AFN" label="AFN">AFN</option>
+                        <option value="ALL" label="ALL (Lek)">ALL (Lek)</option>
+                        <option value="AMD" label="AMD">AMD</option>
+                        <option value="AOA" label="AOA (Kz)">AOA (Kz)</option>
+                        <option value="ARS" label="ARS ($)">ARS ($)</option>
+                        <option value="AUD" label="AUD ($)">AUD ($)</option>
+                        <option value="AWG" label="AWG (ƒ)">AWG (ƒ)</option>
+                        <option value="AZN" label="AZN (ман)">AZN (ман)</option>
+                        <option value="BAM" label="BAM (KM)">BAM (KM)</option>
+                        <option value="BBD" label="BBD ($)">BBD ($)</option>
+                        <option value="BDT" label="BDT (Tk)">BDT (Tk)</option>
+                        <option value="BGN" label="BGN (лв)">BGN (лв)</option>
+                        <option value="BHD" label="BHD">BHD</option>
+                        <option value="BIF" label="BIF">BIF</option>
+                        <option value="BMD" label="BMD ($)">BMD ($)</option>
+                        <option value="BND" label="BND ($)">BND ($)</option>
+                        <option value="BOB" label="BOB ($b)">BOB ($b)</option>
+                        <option value="BOV" label="BOV">BOV</option>
+                        <option value="BRL" label="BRL (R$)">BRL (R$)</option>
+                        <option value="BSD" label="BSD ($)">BSD ($)</option>
+                        <option value="BTN" label="BTN">BTN</option>
+                        <option value="BWP" label="BWP (P)">BWP (P)</option>
+                        <option value="BYN" label="BYN (Br)">BYN (Br)</option>
+                        <option value="BZD" label="BZD (BZ$)">BZD (BZ$)</option>
+                        <option value="CAD" label="CAD ($)">CAD ($)</option>
+                        <option value="CDF" label="CDF">CDF</option>
+                        <option value="CHE" label="CHE">CHE</option>
+                        <option value="CHF" label="CHF">CHF</option>
+                        <option value="CHW" label="CHW">CHW</option>
+                        <option value="CLF" label="CLF">CLF</option>
+                        <option value="CLP" label="CLP ($)">CLP ($)</option>
+                        <option value="CNY" label="CNY (¥)">CNY (¥)</option>
+                        <option value="COP" label="COP (p.)">COP (p.)</option>
+                        <option value="COU" label="COU">COU</option>
+                        <option value="CRC" label="CRC (₡)">CRC (₡)</option>
+                        <option value="CUP" label="CUP (₱)">CUP (₱)</option>
+                        <option value="CVE" label="CVE">CVE</option>
+                        <option value="CZK" label="CZK (Kč)">CZK (Kč)</option>
+                        <option value="DJF" label="DJF (CHF)">DJF (CHF)</option>
+                        <option value="DKK" label="DKK (kr)">DKK (kr)</option>
+                        <option value="DOP" label="DOP (RD$)">DOP (RD$)</option>
+                        <option value="DZD" label="DZD">DZD</option>
+                        <option value="EGP" label="EGP (E£)">EGP (E£)</option>
+                        <option value="ERN" label="ERN">ERN</option>
+                        <option value="ETB" label="ETB">ETB</option>
+                        <option value="EUR" label="EUR (€)">EUR (€)</option>
+                        <option value="FJD" label="FJD ($)">FJD ($)</option>
+                        <option value="FKP" label="FKP (£)">FKP (£)</option>
+                        <option value="GBP" label="GBP (£)">GBP (£)</option>
+                        <option value="GEL" label="GEL">GEL</option>
+                        <option value="GHS" label="GHS (GH¢)">GHS (GH¢)</option>
+                        <option value="GIP" label="GIP (£)">GIP (£)</option>
+                        <option value="GMD" label="GMD">GMD</option>
+                        <option value="GNF" label="GNF">GNF</option>
+                        <option value="GTQ" label="GTQ (Q)">GTQ (Q)</option>
+                        <option value="GYD" label="GYD ($)">GYD ($)</option>
+                        <option value="HKD" label="HKD (HK$)">HKD (HK$)</option>
+                        <option value="HNL" label="HNL (L)">HNL (L)</option>
+                        <option value="HTG" label="HTG">HTG</option>
+                        <option value="HUF" label="HUF (Ft)">HUF (Ft)</option>
+                        <option value="IDR" label="IDR (Rp)">IDR (Rp)</option>
+                        <option value="ILS" label="ILS (₪)">ILS (₪)</option>
+                        <option value="INR" label="INR (Rs)">INR (Rs)</option>
+                        <option value="IQD" label="IQD">IQD</option>
+                        <option value="IRR" label="IRR">IRR</option>
+                        <option value="ISK" label="ISK (kr)">ISK (kr)</option>
+                        <option value="JMD" label="JMD (J$)">JMD (J$)</option>
+                        <option value="JOD" label="JOD">JOD</option>
+                        <option value="JPY" label="JPY (¥)">JPY (¥)</option>
+                        <option value="KES" label="KES (KSh)">KES (KSh)</option>
+                        <option value="KGS" label="KGS (лв)">KGS (лв)</option>
+                        <option value="KHR" label="KHR (៛)">KHR (៛)</option>
+                        <option value="KMF" label="KMF">KMF</option>
+                        <option value="KPW" label="KPW (₩)">KPW (₩)</option>
+                        <option value="KRW" label="KRW (₩)">KRW (₩)</option>
+                        <option value="KWD" label="KWD (ك)">KWD (ك)</option>
+                        <option value="KYD" label="KYD ($)">KYD ($)</option>
+                        <option value="KZT" label="KZT (лв)">KZT (лв)</option>
+                        <option value="LAK" label="LAK (₭)">LAK (₭)</option>
+                        <option value="LBP" label="LBP (£)">LBP (£)</option>
+                        <option value="LKR" label="LKR (Rs)">LKR (Rs)</option>
+                        <option value="LRD" label="LRD ($)">LRD ($)</option>
+                        <option value="LSL" label="LSL">LSL</option>
+                        <option value="LYD" label="LYD (LD)">LYD (LD)</option>
+                        <option value="MAD" label="MAD">MAD</option>
+                        <option value="MDL" label="MDL">MDL</option>
+                        <option value="MGA" label="MGA">MGA</option>
+                        <option value="MKD" label="MKD (ден)">MKD (ден)</option>
+                        <option value="MMK" label="MMK">MMK</option>
+                        <option value="MNT" label="MNT (₮)">MNT (₮)</option>
+                        <option value="MOP" label="MOP">MOP</option>
+                        <option value="MRU" label="MRU">MRU</option>
+                        <option value="MUR" label="MUR (Rs)">MUR (Rs)</option>
+                        <option value="MVR" label="MVR">MVR</option>
+                        <option value="MWK" label="MWK">MWK</option>
+                        <option value="MXN" label="MXN ($)">MXN ($)</option>
+                        <option value="MXV" label="MXV">MXV</option>
+                        <option value="MYR" label="MYR (RM)">MYR (RM)</option>
+                        <option value="MZN" label="MZN (MT)">MZN (MT)</option>
+                        <option value="NAD" label="NAD (N$)">NAD (N$)</option>
+                        <option value="NGN" label="NGN (₦)">NGN (₦)</option>
+                        <option value="NIO" label="NIO (C$)">NIO (C$)</option>
+                        <option value="NOK" label="NOK (kr)">NOK (kr)</option>
+                        <option value="NPR" label="NPR (Rs)">NPR (Rs)</option>
+                        <option value="NZD" label="NZD ($)">NZD ($)</option>
+                        <option value="OMR" label="OMR">OMR</option>
+                        <option value="PAB" label="PAB (B/.)">PAB (B/.)</option>
+                        <option value="PEN" label="PEN (S/.)">PEN (S/.)</option>
+                        <option value="PGK" label="PGK">PGK</option>
+                        <option value="PHP" label="PHP (₱)">PHP (₱)</option>
+                        <option value="PKR" label="PKR (Rs)">PKR (Rs)</option>
+                        <option value="PLN" label="PLN (zł)">PLN (zł)</option>
+                        <option value="PYG" label="PYG (Gs)">PYG (Gs)</option>
+                        <option value="QAR" label="QAR">QAR</option>
+                        <option value="RON" label="RON (lei)">RON (lei)</option>
+                        <option value="RSD" label="RSD (Дин.)">RSD (Дин.)</option>
+                        <option value="RUB" label="RUB (руб)">RUB (рyб)</option>
+                        <option value="RWF" label="RWF">RWF</option>
+                        <option value="SAR" label="SAR">SAR</option>
+                        <option value="SBD" label="SBD ($)">SBD ($)</option>
+                        <option value="SCR" label="SCR (Rs)">SCR (Rs)</option>
+                        <option value="SDG" label="SDG">SDG</option>
+                        <option value="SEK" label="SEK (kr)">SEK (kr)</option>
+                        <option value="SGD" label="SGD ($)">SGD ($)</option>
+                        <option value="SHP" label="SHP (£)">SHP (£)</option>
+                        <option value="SLE" label="SLE">SLE</option>
+                        <option value="SOS" label="SOS (S)">SOS (S)</option>
+                        <option value="SRD" label="SRD ($)">SRD ($)</option>
+                        <option value="SSP" label="SSP">SSP</option>
+                        <option value="STN" label="STN">STN</option>
+                        <option value="SVC" label="SVC ($)">SVC ($)</option>
+                        <option value="SYP" label="SYP (£)">SYP (£)</option>
+                        <option value="SZL" label="SZL">SZL</option>
+                        <option value="THB" label="THB (฿)">THB (฿)</option>
+                        <option value="TJS" label="TJS">TJS</option>
+                        <option value="TMT" label="TMT">TMT</option>
+                        <option value="TND" label="TND (DT)">TND (DT)</option>
+                        <option value="TOP" label="TOP">TOP</option>
+                        <option value="TRY" label="TRY">TRY</option>
+                        <option value="TTD" label="TTD (TT$)">TTD (TT$)</option>
+                        <option value="TWD" label="TWD (NT$)">TWD (NT$)</option>
+                        <option value="TZS" label="TZS (TSh)">TZS (TSh)</option>
+                        <option value="UAH" label="UAH (₴)">UAH (₴)</option>
+                        <option value="UGX" label="UGX (USh)">UGX (USh)</option>
+                        <option value="USD" selected="selected" label="USD ($)">USD ($)</option>
+                        <option value="USN" label="USN">USN</option>
+                        <option value="UYI" label="UYI">UYI</option>
+                        <option value="UYU" label="UYU ($U)">UYU ($U)</option>
+                        <option value="UYW" label="UYW">UYW</option>
+                        <option value="UZS" label="UZS (лв)">UZS (лв)</option>
+                        <option value="VED" label="VED">VED</option>
+                        <option value="VES" label="VES">VES</option>
+                        <option value="VND" label="VND (₫)">VND (₫)</option>
+                        <option value="VUV" label="VUV">VUV</option>
+                        <option value="WST" label="WST">WST</option>
+                        <option value="XAD" label="XAD">XAD</option>
+                        <option value="XAF" label="XAF">XAF</option>
+                        <option value="XAG" label="XAG">XAG</option>
+                        <option value="XAU" label="XAU">XAU</option>
+                        <option value="XBA" label="XBA">XBA</option>
+                        <option value="XBB" label="XBB">XBB</option>
+                        <option value="XBC" label="XBC">XBC</option>
+                        <option value="XBD" label="XBD">XBD</option>
+                        <option value="XCD" label="XCD ($)">XCD ($)</option>
+                        <option value="XCG" label="XCG (Cg)">XCG (Cg)</option>
+                        <option value="XDR" label="XDR">XDR</option>
+                        <option value="XOF" label="XOF">XOF</option>
+                        <option value="XPD" label="XPD">XPD</option>
+                        <option value="XPF" label="XPF">XPF</option>
+                        <option value="XPT" label="XPT">XPT</option>
+                        <option value="XSU" label="XSU">XSU</option>
+                        <option value="XTS" label="XTS">XTS</option>
+                        <option value="XUA" label="XUA">XUA</option>
+                        <option value="XXX" label="XXX">XXX</option>
+                        <option value="YER" label="YER">YER</option>
+                        <option value="ZAR" label="ZAR (R)">ZAR (R)</option>
+                        <option value="ZMW" label="ZMW (ZK)">ZMW (ZK)</option>
+                        <option value="ZWG" label="ZWG">ZWG</option>
+                    </select>
+                </div>
+                <button class="pt-4 pb-2 text-[#009E74] font-medium text-base" onclick="saveDefault()">Save
+                    Default</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="flex px-15 pt-10 pb-20 justify-between border-t border-[#E7EAEF]">
+        <div>
+            <h5 class="text-md font-semibold mb-2">USE INVOICE GENERATOR</h5>
+            <ul class="grid gap-2">
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Invoice Template</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Credit Note Template</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Quote Template</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Purchase Order Template</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="text-md font-semibold mb-2">RESOURCES</h5>
+            <ul class="grid gap-2">
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Invoicing Guide</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Help</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Sign In</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Sign Up</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Release Notes</a></li>
+                <li><a href="#" class="duration-200 ease-in hover:text-[#008663]">Developer API</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <span class="text-[#677788]">&copy; 2012-2025 Invoice-Generator.com</span>
+            <div class="flex gap-4 py-4">
+                <a href="#" class="text-2xl"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-2xl"><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href="#" class="text-2xl"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="text-2xl"><i class="fa-brands fa-square-github"></i></a>
+            </div>
+            <ul class="grid gap-2">
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Terms of Service</a>
+                </li>
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Privacy Policy</a></li>
+                <li><a href="#" class="text-[#677788] hover:text-[#008663] duration-200 ease-in">Cookie Settings</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="uploadImage.js"></script>
+    <script src="invoice-generator.js"></script>
+    <script src="generateInvoice.js"></script>
+</body>
+
+</html>
